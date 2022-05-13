@@ -27,7 +27,7 @@ public class Cuenta {
   public void poner(double cuanto) {
     validarCuanto(cuanto);
     validarMovimientosMaximos();
-    new Movimiento(LocalDate.now(), cuanto, TipoDeMovimiento.Deposito).agregateA(this);
+    agregarMovimiento(LocalDate.now(), cuanto, TipoDeMovimiento.Deposito);
   }
 
   public void validarMovimientosMaximos(){
@@ -40,7 +40,7 @@ public class Cuenta {
     validarCuanto(cuanto);
     validarSaldoDisponible(cuanto);
     validarLimite(cuanto);
-    new Movimiento(LocalDate.now(), cuanto, TipoDeMovimiento.Extraccion).agregateA(this);
+    agregarMovimiento(LocalDate.now(), cuanto, TipoDeMovimiento.Extraccion);
   }
 
   public void validarCuanto(double cuanto){

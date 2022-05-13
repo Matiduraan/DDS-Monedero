@@ -44,16 +44,11 @@ public class Movimiento {
     return esDeposito.equals(TipoDeMovimiento.Extraccion);
   }
 
-  public void agregateA(Cuenta cuenta) {
-    cuenta.setSaldo(calcularValor(cuenta));
-    cuenta.agregarMovimiento(fecha, monto, esDeposito);
-  }
-
-  public double calcularValor(Cuenta cuenta) {
+  /*public double calcularValor(Cuenta cuenta) {
     if (esDeposito.equals(TipoDeMovimiento.Deposito)) {
       return cuenta.getSaldo() + getMonto();
     } else {
       return cuenta.getSaldo() - getMonto();
     }
-  }
+  }*/
 }
