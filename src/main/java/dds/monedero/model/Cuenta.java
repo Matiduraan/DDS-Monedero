@@ -11,15 +11,13 @@ import java.util.List;
 
 public class Cuenta {
 
-  private double saldo = 0;
   private List<Movimiento> movimientos = new ArrayList<>();
 
   public Cuenta() {
-    saldo = 0;
   }
 
   public Cuenta(double montoInicial) {
-    saldo = montoInicial;
+    poner(montoInicial);
   }
 
   public void setMovimientos(List<Movimiento> movimientos) {
@@ -73,11 +71,7 @@ public class Cuenta {
   }
 
   public double getSaldo() {
-    return saldo;
-  }
-
-  public void setSaldo(double saldo) {
-    this.saldo = saldo;
+    return movimientos.stream().mapToDouble(movimiento -> movimiento.getMonto()).sum();
   }
 
 }
