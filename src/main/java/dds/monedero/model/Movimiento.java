@@ -43,12 +43,4 @@ public class Movimiento {
   public boolean isExtraccion() {
     return esDeposito.equals(TipoDeMovimiento.Extraccion);
   }
-
-  /*public double calcularValor(Cuenta cuenta) {
-    if (esDeposito.equals(TipoDeMovimiento.Deposito)) {
-      return cuenta.getSaldo() + getMonto();
-    } else {
-      return cuenta.getSaldo() - getMonto();
-    }
-  }*/
 }
