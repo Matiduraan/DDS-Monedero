@@ -25,15 +25,15 @@ public class Cuenta {
   }
 
   public void poner(double cuanto) {
-    if (cuanto <= 0) {
-      throw new MontoNegativoException(cuanto + ": el monto a ingresar debe ser un valor positivo");
-    }
+    validarCuanto(cuanto);
+    validarMovimientosMaximos();
+    new Movimiento(LocalDate.now(), cuanto, TipoDeMovimiento.Deposito).agregateA(this);
+  }
 
+  public void validarMovimientosMaximos(){
     if (getMovimientos().stream().filter(movimiento -> movimiento.isDeposito()).count() >= 3) {
       throw new MaximaCantidadDepositosException("Ya excedio los " + 3 + " depositos diarios");
     }
-
-    new Movimiento(LocalDate.now(), cuanto, TipoDeMovimiento.Deposito).agregateA(this);
   }
 
   public void sacar(double cuanto) {
